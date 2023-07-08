@@ -1,0 +1,13 @@
+@use '../../styles/variables' as var;
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 265px;
+  background: var.$bg_color_512689;
+
+  @media screen and (max-width: 768px) {
+    min-height: 281px;
+  }
+}

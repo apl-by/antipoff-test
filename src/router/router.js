@@ -5,13 +5,16 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import SignUpPage from '../pages/sign-up-page/sign-up-page';
+import MainLayout from '../layouts/main-layout/main-layout';
+import MainPage from '../pages/main-page/main-page';
+import PartnerPage from '../pages/partner-page/partner-page';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/">
-        <Route index element={<div>Root</div>} />
-        <Route path=":partner" element={<div>Child</div>} />
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<MainPage />} />
+        <Route path=":partner" element={<PartnerPage />} />
       </Route>
       <Route path="/sign-up" element={<SignUpPage />} />
       <Route path="*" element={<Navigate to="/404" replace />} />

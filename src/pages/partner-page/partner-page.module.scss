@@ -1,0 +1,9 @@
+@use '../../styles/variables' as var;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var.$max-content-width;
+  flex: 1;
+}

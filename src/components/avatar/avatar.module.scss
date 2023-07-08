@@ -1,0 +1,29 @@
+@use '../../styles/variables' as var;
+
+.avatar {
+  $size: 124px;
+  display: flex;
+  line-height: $size;
+  text-align: center;
+  object-fit: cover;
+  object-position: center;
+  width: $size;
+  height: $size;
+  border-radius: 100%;
+  background-color: var.$color_f8f8f8;
+  flex-shrink: 0;
+
+  &_size_sm {
+    $size: 124px;
+    line-height: $size;
+    width: $size;
+    height: $size;
+  }
+
+  &_size_lg {
+    $size: 187px;
+    line-height: $size;
+    width: $size;
+    height: $size;
+  }
+}

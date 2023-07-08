@@ -1,6 +1,6 @@
 import styles from './button.module.scss';
+import { ReactComponent as MoreArrowIcon } from '../../assets/icons/more-arrow.svg';
 import classNames from 'classnames/bind';
-import { ReactComponent as ArrowIcon } from '../../assets/icons/arrow.svg';
 
 const cn = classNames.bind(styles);
 
@@ -9,8 +9,8 @@ const cn = classNames.bind(styles);
  *
  * @param {Object} props
  * @param {ReactNode} props.children
- * @param {"submit" | "button"} props.type
- * @param {"filled" | "outlined" | "with-icon"} props.variant
+ * @param {'submit' | 'button'} props.type
+ * @param {'filled' | 'outlined' | 'with-icon'} props.variant
  * @param {boolean} props.fullWidth
  * @param {boolean} props.disabled
  * @param {string} props.mix - микс-селектор для внешнего позиционирования блока по БЭМ
@@ -44,7 +44,9 @@ const Button = ({
       onClick={onClick}
     >
       {children}
-      {variant === 'with-icon' && <ArrowIcon className={styles.button__icon} />}
+      {variant === 'with-icon' && (
+        <MoreArrowIcon className={styles.button__icon} />
+      )}
     </button>
   );
 };

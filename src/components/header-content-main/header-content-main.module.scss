@@ -1,0 +1,71 @@
+@use '../../styles/variables' as var;
+
+@mixin font-styles-common {
+  font-family: var.$font-family-default;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: default;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var.$max-content-width;
+  position: relative;
+
+  &__title {
+    @include font-styles-common;
+    color: var.$text_color_light;
+    font-size: 64px;
+  }
+
+  &__description {
+    @include font-styles-common;
+    color: var.$text_color_light-secondary;
+    font-size: 20px;
+    max-width: 846px;
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  &__exit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    top: 12px;
+    right: 16px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 12px 16px;
+
+    &__title {
+      font-size: 36px;
+    }
+
+    &__description {
+      font-size: 16px;
+      max-width: 334px;
+    }
+  }
+}
+
+.mix-btn-out {
+  position: absolute;
+  top: 32px;
+  right: 80px;
+}

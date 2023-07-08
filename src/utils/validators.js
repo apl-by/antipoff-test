@@ -1,3 +1,10 @@
+/**
+ * checkText - функция валидатор для input c type="text"
+ *
+ * @param {string} value - текущее значение input
+ * @returns {string} - пустая строка, или строка с текстом ошибки
+ */
+
 export const checkText = (value) => {
   if (!value) return 'Поле обязательно для заполнения';
   if (value.length > 50) {
@@ -8,6 +15,13 @@ export const checkText = (value) => {
   }
   return '';
 };
+
+/**
+ * checkEmail - функция валидатор для input c type="email"
+ *
+ * @param {string} value - текущее значение input
+ * @returns {string} - пустая строка, или строка с текстом ошибки
+ */
 
 export const checkEmail = (value) => {
   if (!value) return 'Поле обязательно для заполнения';
@@ -32,6 +46,13 @@ export const checkEmail = (value) => {
   return '';
 };
 
+/**
+ * checkPassword - функция валидатор для input c type="password"
+ *
+ * @param {string} value - текущее значение input
+ * @returns {string} - пустая строка, или строка с текстом ошибки
+ */
+
 export const checkPassword = (value) => {
   if (!value) return 'Поле обязательно для заполнения';
   if (value.length > 50) {
@@ -42,6 +63,14 @@ export const checkPassword = (value) => {
   }
   return '';
 };
+
+/**
+ * comparePassword - функция валидатор для сравнения повторного и текущего паролей
+ *
+ * @param {string} repeatPassword - повторный пароль
+ * @param {string} password - текущий пароль
+ * @returns {string} - пустая строка, или строка с текстом ошибки
+ */
 
 export const comparePassword = (repeatPassword, password) => {
   if (repeatPassword !== password) {

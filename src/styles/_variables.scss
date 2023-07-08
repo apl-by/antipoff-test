@@ -9,6 +9,7 @@ $text_color_error: #ff6161;
 
 // 1.2 background colors:
 $bg_color_default: #ffffff;
+$bg_color_512689: #512689;
 
 // 1.2 common colors:
 $color_ffffff: #ffffff;
@@ -19,3 +20,6 @@ $color_7e7f80: #7e7f80;
 // 2. fonts
 $font-family-default: 'Roboto', 'Arial', 'Segoe UI', 'Oxygen', 'Ubuntu',
   'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+// 3. other
+$max-content-width: 1440px;

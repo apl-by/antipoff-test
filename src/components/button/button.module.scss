@@ -23,7 +23,7 @@
   }
 
   &_type_filled {
-    background: var.$color_512689;
+    background: var.$bg_color_512689;
     height: 48px;
     color: var.$text_color_light;
   }
@@ -47,7 +47,7 @@
   }
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
   &:disabled {
