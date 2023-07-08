@@ -11,19 +11,21 @@ const MainPage = () => {
         <HeaderContentMain />
       </Header>
       <main className={styles.main}>
-        <CardsList
-          cardsList={[
-            { avatar: '', userName: 'asdf asdf', isLiked: true, id: 1 },
-            { avatar: '', userName: 'asdf asdf', isLiked: false, id: 2 },
-            { avatar: '', userName: 'asdf asdf', isLiked: true, id: 3 },
-            { avatar: '', userName: 'asdf asdf', isLiked: false, id: 4 },
-            { avatar: '', userName: 'asdf asdf', isLiked: true, id: 5 },
-            { avatar: '', userName: 'asdf asdf', isLiked: false, id: 6 },
-            { avatar: '', userName: 'asdf asdf', isLiked: true, id: 7 },
-            { avatar: '', userName: 'asdf asdf', isLiked: false, id: 8 },
-          ]}
-        />
-        <Button variant="with-icon">Показать еще</Button>
+        <section className={styles.section}>
+          <CardsList
+            cardsList={[
+              { avatar: '', userName: 'asdf asdf', isLiked: true, id: 1 },
+              { avatar: '', userName: 'asdf asdf', isLiked: false, id: 2 },
+              { avatar: '', userName: 'asdf asdf', isLiked: true, id: 3 },
+              { avatar: '', userName: 'asdf asdf', isLiked: false, id: 4 },
+              { avatar: '', userName: 'asdf asdf', isLiked: true, id: 5 },
+              { avatar: '', userName: 'asdf asdf', isLiked: false, id: 6 },
+              { avatar: '', userName: 'asdf asdf', isLiked: true, id: 7 },
+              { avatar: '', userName: 'asdf asdf', isLiked: false, id: 8 },
+            ]}
+          />
+          <Button variant="with-icon">Показать еще</Button>
+        </section>
       </main>
     </>
   );

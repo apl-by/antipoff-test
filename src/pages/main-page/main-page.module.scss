@@ -7,5 +7,21 @@
   width: 100%;
   max-width: var.$max-content-width;
   flex: 1;
-  margin-bottom: 32px;
+  margin: 48px 0 32px;
+
+  @media screen and (max-width: 768px) {
+    margin: 32px 0;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 56px;
+
+  @media screen and (max-width: 768px) {
+    gap: 32px;
+  }
 }
