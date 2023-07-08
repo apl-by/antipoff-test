@@ -1,0 +1,37 @@
+@use '../../styles/variables' as var;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 305px;
+  padding: 36px 20px 20px;
+  border-radius: 10px;
+  background-color: var.$bg_color_default;
+  box-shadow: 0px 0.1px 4px 0px rgba(51, 51, 51, 0.15);
+
+  &__name {
+    font-family: var.$font-family-default;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 16px 0;
+  }
+
+  &__like {
+    display: flex;
+    align-self: flex-end;
+    width: 30px;
+    height: 28px;
+    border-radius: 4px;
+    background: var.$color_f8f8f8;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
