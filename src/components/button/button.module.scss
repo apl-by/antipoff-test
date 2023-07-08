@@ -1,0 +1,57 @@
+@use '../../styles/variables' as var;
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var.$font-family-default;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.187%;
+  padding: 0 16px;
+  width: max-content;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &_full-widthed {
+    width: 100%;
+  }
+
+  &_type_filled {
+    background: var.$color_512689;
+    height: 48px;
+    color: var.$text_color_light;
+  }
+
+  &_type_outlined {
+    $common-color: var.$text_color_light-secondary;
+    height: 38px;
+    color: $common-color;
+    border: 1px solid $common-color;
+  }
+
+  &_type_with-icon {
+    $common-color: var.$text_color_default;
+    height: 40px;
+    color: $common-color;
+    border: 1px solid $common-color;
+  }
+
+  &__icon {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background: var.$color_7e7f80;
+    opacity: 1;
+  }
+}

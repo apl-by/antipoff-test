@@ -1,15 +1,17 @@
+@use './styles/variables' as var;
+
 *,
 ::after,
 ::before {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  color: var.$text_color_default;
+  font-family: var.$font-family-default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

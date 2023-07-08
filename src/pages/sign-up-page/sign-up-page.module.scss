@@ -1,0 +1,9 @@
+@use '../../styles/variables' as var;
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var.$bg_color_default;
+}
