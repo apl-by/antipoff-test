@@ -2,7 +2,7 @@
 
 ### Ссылка на проект
 
-Проект доступен по ссылке:
+Проект доступен по ссылке: https://antipoff-test-nine.vercel.app/
 
 ### Описание
 
@@ -13,7 +13,7 @@
 Скачать и установить приложение:
 
 ```bash
-git clone
+git clone git@github.com:apl-by/antipoff-test.git
 ```
 
 ```bash
