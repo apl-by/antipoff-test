@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Card from '../card/card';
 import styles from './cards-list.module.scss';
 
@@ -15,6 +16,7 @@ const CardsList = ({ cardsList }) => {
       {cardsList.map((cardData) => (
         <li className={styles.list__item} key={cardData.id}>
           <Card data={cardData} />
+          <NavLink className={styles.list__link} to={`/${cardData.id}`} />
         </li>
       ))}
     </ul>

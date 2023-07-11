@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './form.module.scss';
 import Input from '../input/input';
 import {
@@ -8,6 +8,7 @@ import {
   comparePassword,
 } from '../../utils/validators';
 import Button from '../button/button';
+import { REGISTER_INPUTS } from '../../constants/constants';
 
 /**
  * Form компонент
@@ -15,40 +16,35 @@ import Button from '../button/button';
  * @param {Object} props
  * @param {function} props.onSubmiit
  * @param {boolean} props.disabled
+ * @param {string} props.outError
  * @returns {JSX.Element}
  */
 
-const input = {
-  userName: 'userName',
-  email: 'email',
-  password: 'password',
-  repeatPassword: 'repeatPassword',
+const { userName, email, password, repeatPassword } = REGISTER_INPUTS;
+const initInputs = {
+  [userName]: '',
+  [email]: '',
+  [password]: '',
+  [repeatPassword]: '',
+};
+const initError = {
+  [userName]: '',
+  [email]: '',
+  [password]: '',
+  [repeatPassword]: '',
 };
 
-const Form = ({ onSubmit, disabled }) => {
-  const [inputValue, setInputValue] = useState({
-    [input.userName]: '',
-    [input.email]: '',
-    [input.password]: '',
-    [input.repeatPassword]: '',
-  });
+const Form = ({ onSubmit, disabled, outError }) => {
+  const [inputValue, setInputValue] = useState(initInputs);
 
-  const [error, setError] = useState({
-    [input.userName]: '',
-    [input.email]: '',
-    [input.password]: '',
-    [input.repeatPassword]: '',
-  });
+  const [error, setError] = useState(initError);
 
-  const validators = useMemo(
-    () => ({
-      [input.userName]: checkText,
-      [input.email]: checkEmail,
-      [input.password]: checkPassword,
-      [input.repeatPassword]: comparePassword,
-    }),
-    []
-  );
+  const validators = {
+    [userName]: checkText,
+    [email]: checkEmail,
+    [password]: checkPassword,
+    [repeatPassword]: comparePassword,
+  };
 
   const onChange = useCallback((e) => {
     const { name, value } = e.target;
@@ -77,6 +73,14 @@ const Form = ({ onSubmit, disabled }) => {
     onSubmit(inputValue);
   };
 
+  useEffect(() => {
+    const resError = { ...initError };
+    Object.entries(outError).forEach(([k, v]) => {
+      if (v) resError[k] = v;
+    });
+    setError(resError);
+  }, [outError]);
+
   return (
     <form
       className={styles.form}
@@ -87,50 +91,50 @@ const Form = ({ onSubmit, disabled }) => {
       <h2 className={styles.form__title}>Регистрация</h2>
       <Input
         type="text"
-        name={input.userName}
+        name={userName}
         title="Имя"
         placeholder="Введите имя"
-        value={inputValue[input.userName]}
+        value={inputValue[userName]}
         onChange={onChange}
-        validator={validators[input.userName]}
-        error={error[input.userName]}
+        validator={validators[userName]}
+        error={error[userName]}
         setError={setError}
       />
       <Input
         type="email"
-        name={input.email}
+        name={email}
         title="Электронная почта"
         placeholder="Введите электронную почту"
-        value={inputValue[input.email]}
+        value={inputValue[email]}
         onChange={onChange}
-        validator={validators[input.email]}
-        error={error[input.email]}
+        validator={validators[email]}
+        error={error[email]}
         setError={setError}
       />
       <Input
         type="password"
-        name={input.password}
+        name={password}
         title="Пароль"
         placeholder="Введите пароль"
-        value={inputValue[input.password]}
+        value={inputValue[password]}
         onChange={onChange}
-        validator={validators[input.password]}
-        error={error[input.password]}
+        validator={validators[password]}
+        error={error[password]}
         setError={setError}
       />
       <Input
         type="password"
-        name={input.repeatPassword}
+        name={repeatPassword}
         title="Подтвердите пароль"
         placeholder="Подтвердите пароль"
-        value={inputValue[input.repeatPassword]}
+        value={inputValue[repeatPassword]}
         onChange={onChange}
-        validator={validators[input.repeatPassword]}
-        error={error[input.repeatPassword]}
+        validator={validators[repeatPassword]}
+        error={error[repeatPassword]}
         setError={setError}
-        currentPassword={inputValue[input.password]}
+        currentPassword={inputValue[password]}
       />
-      <Button type="submit" fullWidth>
+      <Button type="submit" fullWidth disabled={disabled}>
         Зарегистрироваться
       </Button>
     </form>

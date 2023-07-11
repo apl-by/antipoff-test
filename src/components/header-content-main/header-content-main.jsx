@@ -3,10 +3,15 @@ import Button from '../button/button';
 import styles from './header-content-main.module.scss';
 import { ReactComponent as ExitIcon } from '../../assets/icons/exit.svg';
 import classNames from 'classnames/bind';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/authSlice';
 
 const cn = classNames.bind(styles);
 
 const HeaderContentMain = () => {
+  const dispatch = useDispatch();
+  const handleLogout = () => dispatch(logout());
+
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   const cnMixBtnOut = cn('mix-btn-out');
@@ -20,12 +25,16 @@ const HeaderContentMain = () => {
         сложных ситуаций.
       </p>
       {!isMobile && (
-        <Button variant="outlined" onClick={() => undefined} mix={cnMixBtnOut}>
+        <Button variant="outlined" onClick={handleLogout} mix={cnMixBtnOut}>
           Выход
         </Button>
       )}
       {isMobile && (
-        <button type="button" className={styles.container__exit}>
+        <button
+          type="button"
+          onClick={handleLogout}
+          className={styles.container__exit}
+        >
           <ExitIcon />
         </button>
       )}

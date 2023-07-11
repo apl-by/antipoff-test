@@ -3,17 +3,29 @@ import Header from '../../components/header/header';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone-icon.svg';
 import { ReactComponent as EmailIcon } from '../../assets/icons/email-icon.svg';
 import styles from './partner-page.module.scss';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectUsers } from '../../features/usersSlice';
 
 const text = `Клиенты видят в нем эксперта по вопросам разработки комплексных решений финансовых продуктов, включая такие аспекты, как организационная структура, процессы, аналитика и ИТ-компоненты. Он помогает клиентам лучше понимать структуру рисков их бизнеса, улучшать процессы за счет применения новейших технологий и увеличивать продажи, используя самые современные аналитические инструменты.
 В работе с клиентами недостаточно просто решить конкретную проблему или помочь справиться с трудностями. Не менее важно уделять внимание обмену знаниями: "Один из самых позитивных моментов — это осознание того, что ты помог клиенту перейти на совершенно новый уровень компетентности, уверенность в том, что после окончания проекта у клиента есть все необходимое, чтобы дальше развиваться самостоятельно".
 Помимо разнообразных проектов для клиентов финансового сектора, Сорин ведет активную предпринимательскую деятельность. Он является совладельцем сети клиник эстетической медицины в Швейцарии, предлагающей инновационный подход к красоте, а также инвестором других бизнес-проектов.`;
 
 const PartnerPage = () => {
+  const { partnerId } = useParams();
+
+  const user = useSelector((state) =>
+    selectUsers(state).find((i) => String(i.id) === partnerId)
+  );
+
   const paragraphs = text.trim().split('\n');
+
+  if (!user) return <p>Произошла ошибка</p>;
+
   return (
     <>
       <Header>
-        <HeaderContentPartner />
+        <HeaderContentPartner user={user} />
       </Header>
       <main className={styles.main}>
         <section className={styles.partner}>
@@ -30,7 +42,7 @@ const PartnerPage = () => {
             </div>
             <div className={styles.partner__contact}>
               <EmailIcon />
-              <span>sykfafkar@gmail.com</span>
+              <span>{user.email}</span>
             </div>
           </div>
         </section>

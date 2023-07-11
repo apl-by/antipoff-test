@@ -25,7 +25,7 @@ export const checkText = (value) => {
 
 export const checkEmail = (value) => {
   if (!value) return 'Поле обязательно для заполнения';
-  if (/[^\w@.]/.test(value)) {
+  if (/[^\w@.-]/.test(value)) {
     return 'Недопустимый символ ввода';
   }
   if (value.length > 100) {
@@ -40,7 +40,7 @@ export const checkEmail = (value) => {
   if (!/@/.test(value)) {
     return 'Пропущен обязательный символ @';
   }
-  if (!/^\w+@\w+\.\w+$/.test(value)) {
+  if (!/^[\w.-]+@\w+\.\w+$/.test(value)) {
     return 'Некорректный email';
   }
   return '';

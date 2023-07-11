@@ -1,29 +1,25 @@
 @use '../../styles/variables' as var;
 
 .avatar {
-  $size: 124px;
   display: flex;
-  line-height: $size;
-  text-align: center;
   object-fit: cover;
   object-position: center;
-  width: $size;
-  height: $size;
+  width: 124px;
+  height: 124px;
   border-radius: 100%;
   background-color: var.$color_f8f8f8;
   flex-shrink: 0;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 
   &_size_sm {
-    $size: 124px;
-    line-height: $size;
-    width: $size;
-    height: $size;
+    width: 124px;
+    height: 124px;
   }
 
   &_size_lg {
-    $size: 187px;
-    line-height: $size;
-    width: $size;
-    height: $size;
+    width: 187px;
+    height: 187px;
   }
 }
